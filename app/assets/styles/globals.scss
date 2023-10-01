@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap');
+@import 'app/assets/styles/variables';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	@apply bg-[#131313] text-base text-gray;
+	font-family: Montserrat;
+}
+
+.disabled {
+	pointer-events: none;
+	cursor: default;
+	text-decoration: none;
+	opacity: 0.3 !important;
+}
+
+.btn-link {
+	@apply relative border-white/20 text-sm uppercase  tracking-widest text-white;
+	&::after {
+		content: '';
+		@apply absolute left-0 -bottom-3 h-0.5 w-0 bg-gray transition-all duration-500;
+	}
+	&:hover ::after {
+		@apply w-full;
+	}
+}
+
+.btn-shadow {
+	width: 200px;
+	margin-top: 30px;
+	padding: 18px 34px;
+	background-color: black;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	font-size: 20px;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+	transition: box-shadow 0.3s ease;
+}
+
+.btn-shadow:hover {
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 2);
+	transform: scale(1.07);
+}
+.center {
+	@apply flex items-center justify-center;
+}
+
+.menu {
+	transition: opacity 0.7s, transform 1s easy-in-out;
+}
+
+.open-menu {
+	opacity: 1;
+	transfrom: translateY(0);
+}
+
+.close-menu {
+	opacity: 0;
+	transfrom: translateY(-350px);
+}
